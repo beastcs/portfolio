@@ -1,436 +1,226 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaurav Singh Yadav | Software Engineer</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            light: '#818cf8',
-                            DEFAULT: '#6366f1',
-                            dark: '#4f46e5',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom animations and base styles */
-        body {
-            background-color: #0f172a; /* Slate 900 */
-            color: #f8fafc; /* Slate 50 */
-        }
-        .gradient-text {
-            background: linear-gradient(to right, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
-        }
-        /* Reveal animation classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaurav Singh Yadav | Software Engineer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: { sans: ['Inter', 'sans-serif'] },
+colors: {
+brand: {
+light: '#818cf8',
+DEFAULT: '#6366f1',
+dark: '#4f46e5'
+}
+}
+}
+}
+}
+</script>
+
+<style>
+body { background-color: #0f172a; color: #f8fafc; }
+.gradient-text {
+background: linear-gradient(to right, #818cf8, #c084fc);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.glass-card {
+background: rgba(30,41,59,0.7);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.1);
+}
+.hover-lift { transition: all 0.3s ease; }
+.hover-lift:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(99,102,241,0.4);
+}
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+</style>
 </head>
+
 <body class="antialiased selection:bg-brand selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-card transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-xl font-bold tracking-tighter gradient-text">GSY.</a>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</a>
-                    <a href="#experience" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Experience</a>
-                    <a href="#skills" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Skills</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Projects</a>
-                    <a href="#contact" class="text-brand-light hover:text-brand transition-colors text-sm font-medium">Contact</a>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-700 rounded-md">About</a>
-                <a href="#experience" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-700 rounded-md">Experience</a>
-                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-700 rounded-md">Skills</a>
-                <a href="#projects" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-700 rounded-md">Projects</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-brand-light hover:text-brand hover:bg-slate-700 rounded-md">Contact</a>
-            </div>
-        </div>
-    </nav>
+<!-- HERO -->
+<section class="pt-40 pb-24 text-center">
+<div class="max-w-4xl mx-auto px-6">
+<p class="text-brand-light uppercase font-semibold mb-4">Hello, I am</p>
+<h1 class="text-5xl md:text-6xl font-extrabold mb-6">
+Gaurav Singh <span class="gradient-text">Yadav</span>
+</h1>
+<h2 class="text-2xl text-gray-400 mb-6">
+Software Engineer | AI & DevOps Systems
+</h2>
+<p class="text-gray-400 text-lg mb-10">
+Currently working as a Software Engineer at HCLTech, focusing on AI integrations, DevOps workflows, backend systems, and automation platforms designed for production environments.
+</p>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
-        <!-- Background decorations -->
-        <div class="absolute top-20 left-10 w-72 h-72 bg-brand rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-1 reveal active">
-                <p class="text-brand-light font-semibold tracking-wide uppercase mb-3">Hello, I am</p>
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-                    Gaurav Singh <br>
-                    <span class="gradient-text">Yadav</span>
-                </h1>
-                <h2 class="text-2xl md:text-3xl text-gray-400 font-medium mb-8">
-                    Software Engineer & AI Developer
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto md:mx-0 mb-10 text-lg leading-relaxed">
-                    Building intelligent solutions bridging full-stack development, AI agent architectures, and robust cloud integrations. Currently engineering the future at HCL Tech.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#contact" class="px-8 py-3 rounded-full bg-brand hover:bg-brand-dark text-white font-semibold transition-all shadow-lg hover:shadow-brand/50 text-center">
-                        Get In Touch <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="#projects" class="px-8 py-3 rounded-full glass-card hover:bg-slate-800 text-white font-semibold transition-all text-center">
-                        View Work
-                    </a>
-                </div>
-            </div>
-            <!-- Optional Profile Image Placeholder (can be replaced with your actual image URL) -->
-            <div class="hidden lg:block w-80 h-80 relative reveal active">
-                <div class="absolute inset-0 bg-gradient-to-tr from-brand to-purple-500 rounded-full blur-2xl opacity-40"></div>
-                <div class="relative h-full w-full rounded-full border-2 border-slate-700 overflow-hidden bg-slate-800 flex items-center justify-center">
-                    <i class="fas fa-user-astronaut text-8xl text-slate-500"></i>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="#contact" class="px-8 py-3 bg-brand rounded-full font-semibold hover:bg-brand-dark">
+Get In Touch
+</a>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
-                    <span class="text-brand-light">01.</span> About Me
-                </h2>
-                <div class="glass-card rounded-2xl p-8 md:p-12 shadow-xl hover-lift max-w-4xl mx-auto">
-                    <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
-                        <div class="text-gray-300 text-lg leading-relaxed space-y-6">
-                            <p>
-                                I am a dedicated college student currently pursuing my degree while working as a Software Engineer at a technology firm. Managing both academic and professional responsibilities has helped me build strong time-management, adaptability, and problem-solving skills.
-                            </p>
-                            <p>
-                                Through my role in the tech industry, I have gained hands-on experience with real-world engineering workflows, collaborating with teams, understanding complex project requirements, and developing reliable solutions. I focus on writing clean, efficient, and well-organized code.
-                            </p>
-                            <p>
-                                I value continuous learning and regularly work on improving my technical and analytical abilities to grow as a capable and dependable engineering professional.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<a href="resume.pdf" download
+class="px-8 py-3 border border-brand text-brand rounded-full hover:bg-brand hover:text-white transition">
+Download Resume
+</a>
+</div>
+</div>
+</section>
 
-    <!-- Experience & Education Section -->
-    <section id="experience" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center reveal">
-                <span class="text-brand-light">02.</span> Experience & Education
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Professional Experience -->
-                <div class="reveal">
-                    <h3 class="text-2xl font-semibold mb-8 flex items-center text-gray-200">
-                        <i class="fas fa-briefcase text-brand mr-3"></i> Work History
-                    </h3>
-                    <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-brand before:to-transparent">
-                        
-                        <!-- Job 1 -->
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-brand text-white shadow shrink-0 z-10">
-                                <i class="fas fa-laptop-code text-sm"></i>
-                            </div>
-                            <div class="glass-card p-6 rounded-xl w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] hover-lift">
-                                <span class="text-brand-light font-bold text-sm tracking-wide">2024 - Present</span>
-                                <h4 class="text-xl font-bold text-white mt-1">Software Engineer</h4>
-                                <p class="text-gray-400 font-medium mb-3">HCL TECH</p>
-                                <ul class="list-disc list-inside text-gray-300 text-sm space-y-2">
-                                    <li>Working in DevOps as an AI Developer using AI APIs to create intelligent agents.</li>
-                                    <li>Handling complex data and building custom AI models for specific business requirements.</li>
-                                    <li>Previously provided vital support handling Database and transaction hiccups, gaining in-depth DBMS expertise.</li>
-                                </ul>
-                            </div>
-                        </div>
+<!-- ABOUT -->
+<section class="py-20 bg-slate-800/50">
+<div class="max-w-4xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-10 text-center">
+<span class="text-brand-light">01.</span> About Me
+</h2>
 
-                        <!-- Job 2 -->
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-slate-900 bg-slate-700 text-white shadow shrink-0 z-10">
-                                <i class="fas fa-graduation-cap text-sm"></i>
-                            </div>
-                            <div class="glass-card p-6 rounded-xl w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] hover-lift">
-                                <span class="text-brand-light font-bold text-sm tracking-wide">2024</span>
-                                <h4 class="text-xl font-bold text-white mt-1">Intern</h4>
-                                <p class="text-gray-400 font-medium mb-3">HCL TECH</p>
-                                <ul class="list-disc list-inside text-gray-300 text-sm space-y-2">
-                                    <li>Trained extensively in core technologies including Java, C++, C#, and Python.</li>
-                                    <li>Developed Full-Stack capabilities learning HTML, CSS, and JavaScript.</li>
-                                    <li>Managed databases and executed project-directed requirements effectively.</li>
-                                </ul>
-                            </div>
-                        </div>
+<div class="glass-card p-8 rounded-xl text-gray-300 text-lg space-y-6">
+<p>
+I am a Software Engineer working in DevOps and AI integration, focused on building reliable automation systems and intelligent tooling for operational workflows. My work involves designing backend services that integrate APIs, databases, and distributed environments.
+</p>
 
-                    </div>
-                </div>
+<p>
+I build AI-powered assistants, backend automation systems, and internal tools that reduce manual effort and improve reliability. I am particularly interested in production-grade AI — systems that monitor, recover, scale, and integrate cleanly into existing infrastructure.
+</p>
 
-                <!-- Education -->
-                <div class="reveal">
-                    <h3 class="text-2xl font-semibold mb-8 flex items-center text-gray-200">
-                        <i class="fas fa-university text-brand mr-3"></i> Education
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="glass-card p-6 rounded-xl hover-lift border-l-4 border-l-brand">
-                            <h4 class="text-lg font-bold text-white">Techbee Program</h4>
-                            <p class="text-gray-400">HCLTECH • 2024</p>
-                        </div>
-                        <div class="glass-card p-6 rounded-xl hover-lift border-l-4 border-l-slate-600">
-                            <h4 class="text-lg font-bold text-white">Intermediate</h4>
-                            <p class="text-gray-400">Kendriya Vidyalaya AMC • 2023</p>
-                        </div>
-                        <div class="glass-card p-6 rounded-xl hover-lift border-l-4 border-l-slate-700">
-                            <h4 class="text-lg font-bold text-white">High School</h4>
-                            <p class="text-gray-400">Kendriya Vidyalaya AMC • 2021</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<p>
+Beyond professional work, I explore local LLM systems, agent orchestration, and speech-based AI interfaces. I enjoy solving edge-case problems and engineering systems that remain stable under real-world constraints.
+</p>
+</div>
+</div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal">
-                <span class="text-brand-light">03.</span> Technical Arsenal
-            </h2>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
-                <!-- Skill Badge -->
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fas fa-robot text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">AI Agent Building</h4>
-                </div>
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fas fa-cloud text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">Cloud Integration</h4>
-                </div>
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fas fa-database text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">DBMS</h4>
-                </div>
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fas fa-code text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">Full-Stack Coding</h4>
-                </div>
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fab fa-python text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">Python & C++</h4>
-                </div>
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fab fa-java text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">Java & C#</h4>
-                </div>
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fas fa-tasks text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">Project Mgmt</h4>
-                </div>
-                <div class="glass-card p-6 rounded-xl text-center hover-lift group">
-                    <i class="fas fa-gamepad text-4xl text-gray-400 group-hover:text-brand transition-colors mb-4"></i>
-                    <h4 class="font-semibold text-gray-200">Gaming</h4>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SKILLS -->
+<section class="py-20">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-12 text-center">
+<span class="text-brand-light">02.</span> Technical Stack
+</h2>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center reveal">
-                <span class="text-brand-light">04.</span> Featured Projects
-            </h2>
-            
-            <div class="grid md:grid-cols-3 gap-8 reveal">
-                <!-- Project 1 -->
-                <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col h-full">
-                    <div class="h-48 bg-slate-700 flex items-center justify-center relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-brand/20 group-hover:bg-brand/40 transition-colors z-10"></div>
-                        <i class="fas fa-shipping-fast text-6xl text-slate-500 z-0 group-hover:scale-110 transition-transform duration-500"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Stock to Ship</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-1">An end-to-end inventory management and logistics tracker designed to streamline the pipeline from warehouse stocking to final delivery.</p>
-                        <div class="flex gap-2 mt-auto">
-                            <span class="text-xs font-semibold bg-slate-700 text-brand-light px-2 py-1 rounded">Logistics</span>
-                            <span class="text-xs font-semibold bg-slate-700 text-brand-light px-2 py-1 rounded">Database</span>
-                        </div>
-                    </div>
-                </div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<div class="glass-card p-6 rounded-xl hover-lift">Python</div>
+<div class="glass-card p-6 rounded-xl hover-lift">FastAPI</div>
+<div class="glass-card p-6 rounded-xl hover-lift">Docker</div>
+<div class="glass-card p-6 rounded-xl hover-lift">Linux</div>
+<div class="glass-card p-6 rounded-xl hover-lift">REST APIs</div>
+<div class="glass-card p-6 rounded-xl hover-lift">LLMs</div>
+<div class="glass-card p-6 rounded-xl hover-lift">Vector Databases</div>
+<div class="glass-card p-6 rounded-xl hover-lift">Git & CI/CD</div>
+</div>
+</div>
+</section>
 
-                <!-- Project 2 -->
-                <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col h-full">
-                    <div class="h-48 bg-slate-700 flex items-center justify-center relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-purple-500/20 group-hover:bg-purple-500/40 transition-colors z-10"></div>
-                        <i class="fas fa-brain text-6xl text-slate-500 z-0 group-hover:scale-110 transition-transform duration-500"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">AI Agent Helper</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-1">A smart virtual assistant built utilizing advanced AI APIs to handle specialized tasks, process natural language data, and automate workflows.</p>
-                        <div class="flex gap-2 mt-auto">
-                            <span class="text-xs font-semibold bg-slate-700 text-brand-light px-2 py-1 rounded">AI API</span>
-                            <span class="text-xs font-semibold bg-slate-700 text-brand-light px-2 py-1 rounded">Python</span>
-                        </div>
-                    </div>
-                </div>
+<!-- PROJECTS -->
+<section class="py-20 bg-slate-800/50">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-12 text-center">
+<span class="text-brand-light">03.</span> Featured Projects
+</h2>
 
-                <!-- Project 3 -->
-                <div class="glass-card rounded-2xl overflow-hidden hover-lift flex flex-col h-full">
-                    <div class="h-48 bg-slate-700 flex items-center justify-center relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-emerald-500/20 group-hover:bg-emerald-500/40 transition-colors z-10"></div>
-                        <i class="fas fa-file-excel text-6xl text-slate-500 z-0 group-hover:scale-110 transition-transform duration-500"></i>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">PDF to Excel Extractor</h3>
-                        <p class="text-gray-400 text-sm mb-4 flex-1">A utility application that intelligently parses unstructured data from PDF documents and securely formats it into structured Excel spreadsheets.</p>
-                        <div class="flex gap-2 mt-auto">
-                            <span class="text-xs font-semibold bg-slate-700 text-brand-light px-2 py-1 rounded">Automation</span>
-                            <span class="text-xs font-semibold bg-slate-700 text-brand-light px-2 py-1 rounded">Data Parsers</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="grid md:grid-cols-3 gap-8">
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-slate-800/50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                <span class="text-brand-light">05.</span> Get In Touch
-            </h2>
-            <p class="text-gray-400 mb-10 text-lg">
-                Currently open to new opportunities, collaborations, and tech discussions. Whether you have a question or just want to say hi, my inbox is always open!
-            </p>
-            
-            <div class="flex flex-col md:flex-row justify-center gap-6 mb-12">
-                <a href="mailto:gauravsingh48rollno@gmail.com" class="glass-card px-6 py-4 rounded-xl flex items-center justify-center gap-4 hover-lift group">
-                    <i class="fas fa-envelope text-2xl text-brand group-hover:text-white transition-colors"></i>
-                    <span class="text-gray-200 font-medium">gauravsingh48rollno@gmail.com</span>
-                </a>
-                <a href="tel:+917348003232" class="glass-card px-6 py-4 rounded-xl flex items-center justify-center gap-4 hover-lift group">
-                    <i class="fas fa-phone text-2xl text-brand group-hover:text-white transition-colors"></i>
-                    <span class="text-gray-200 font-medium">+91 734800 3232</span>
-                </a>
-            </div>
-            
-            <div class="flex justify-center gap-6">
-                <!-- Add your actual profile links to the hrefs below -->
-                <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand transition-all hover-lift">
-                    <i class="fab fa-github text-xl">https://github.com/beastcs</i>
-                </a>
-                <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand transition-all hover-lift">
-                    <i class="fab fa-linkedin-in text-xl">https://www.linkedin.com/in/gaurav-singh-yadav-a69757310/</i>
-                </a>
-                <div class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand transition-all hover-lift" title="Lucknow, Uttar Pradesh">
-                    <i class="fas fa-map-marker-alt text-xl"></i>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PROJECT 1 -->
+<div class="glass-card p-6 rounded-xl hover-lift flex flex-col">
+<h3 class="text-xl font-bold mb-3">Stock to Ship System</h3>
+<p class="text-gray-400 mb-4 flex-1">
+Full-stack inventory & logistics tracking platform integrating database systems and shipment lifecycle monitoring. Designed for operational efficiency and transactional consistency.
+</p>
+<div class="flex gap-4">
+<a href="https://github.com/beastcs" target="_blank" class="text-brand hover:underline">Code</a>
+<a href="#" target="_blank" class="text-purple-400 hover:underline">Live</a>
+</div>
+</div>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-slate-800 text-center">
-        <p class="text-slate-500 text-sm">
-            Designed & Built by Gaurav Singh Yadav &copy; 2024
-        </p>
-    </footer>
+<!-- PROJECT 2 -->
+<div class="glass-card p-6 rounded-xl hover-lift flex flex-col">
+<h3 class="text-xl font-bold mb-3">AI Agent Automation System</h3>
+<p class="text-gray-400 mb-4 flex-1">
+Built intelligent AI agents using API-based LLM integrations for workflow automation, structured data processing, and task orchestration across services.
+</p>
+<div class="flex gap-4">
+<a href="https://github.com/beastcs" target="_blank" class="text-brand hover:underline">Code</a>
+<a href="#" target="_blank" class="text-purple-400 hover:underline">Live</a>
+</div>
+</div>
 
-    <!-- Scripts for Interactivity -->
-    <script>
-        // Mobile menu toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+<!-- PROJECT 3 -->
+<div class="glass-card p-6 rounded-xl hover-lift flex flex-col">
+<h3 class="text-xl font-bold mb-3">PDF to Structured Excel Parser</h3>
+<p class="text-gray-400 mb-4 flex-1">
+Automation tool that extracts semi-structured data from PDFs, applies parsing logic, validates records, and exports structured datasets to Excel for enterprise reporting.
+</p>
+<div class="flex gap-4">
+<a href="https://github.com/beastcs" target="_blank" class="text-brand hover:underline">Code</a>
+<a href="#" target="_blank" class="text-purple-400 hover:underline">Live</a>
+</div>
+</div>
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+</div>
+</div>
+</section>
 
-        // Close mobile menu on click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        });
+<!-- CONTACT -->
+<section class="py-20">
+<div class="max-w-4xl mx-auto text-center px-6">
+<h2 class="text-3xl font-bold mb-6">
+<span class="text-brand-light">04.</span> Contact
+</h2>
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                nav.classList.add('shadow-lg', 'bg-slate-900/90');
-                nav.classList.remove('glass-card');
-            } else {
-                nav.classList.remove('shadow-lg', 'bg-slate-900/90');
-                nav.classList.add('glass-card');
-            }
-        });
+<p class="text-gray-400 mb-8">
+Open to AI engineering roles, backend development, and DevOps-focused opportunities.
+</p>
 
-        // Scroll reveal animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
-    </script>
+<div class="flex justify-center gap-6 mb-8">
+<a href="mailto:gauravsingh48rollno@gmail.com" class="text-brand hover:underline">
+gauravsingh48rollno@gmail.com
+</a>
+
+<a href="tel:+917348003232" class="text-brand hover:underline">
++91 7348003232
+</a>
+</div>
+
+<div class="flex justify-center gap-6 text-2xl">
+<a href="https://github.com/beastcs" target="_blank">
+<i class="fab fa-github hover:text-brand"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/gaurav-singh-yadav-a69757310/" target="_blank">
+<i class="fab fa-linkedin hover:text-brand"></i>
+</a>
+</div>
+
+</div>
+</section>
+
+<footer class="py-8 text-center text-slate-500 text-sm">
+© 2026 Gaurav Singh Yadav
+</footer>
+
+<script>
+function reveal() {
+var reveals = document.querySelectorAll(".reveal");
+for (var i = 0; i < reveals.length; i++) {
+var windowHeight = window.innerHeight;
+var elementTop = reveals[i].getBoundingClientRect().top;
+if (elementTop < windowHeight - 100) {
+reveals[i].classList.add("active");
+}
+}
+}
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
+
 </body>
-
 </html>
